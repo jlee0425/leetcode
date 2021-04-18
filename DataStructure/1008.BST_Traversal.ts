@@ -51,7 +51,7 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
 }
 
 // find the right pos and insert using recursion
-const insert = (node, val): TreeNode => {
+const insert = (node: TreeNode, val: number): TreeNode => {
 	if (node.val > val) {
 		node.left = node.left ? insert(node.left, val) : new TreeNode(val);
 	} else {
