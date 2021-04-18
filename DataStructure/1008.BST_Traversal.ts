@@ -42,8 +42,8 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
 
 	const head = new TreeNode(preorder[0]);
 
+	// O(n)
 	for (let i = 1; i < preorder.length; i++) {
-		// -> O(n)
 		insert(head, preorder[i]);
 	}
 
@@ -55,9 +55,9 @@ const insert = (node: TreeNode, val: number): TreeNode => {
 	if (node.val > val) {
 		node.left = node.left ? insert(node.left, val) : new TreeNode(val);
 	} else {
-		node.right = node.right
-			? insert(node.right, val)
-			: (node.right = new TreeNode(val));
+		node.right = node.right ? insert(node.right, val) : new TreeNode(val);
 	}
 	return node;
 };
+
+// Best Runtime: 44ms & mem: 34.7mb
