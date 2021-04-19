@@ -1,0 +1,29 @@
+{
+	"name": "leetcode",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha -r ts-node/register 'test/**/*.ts'"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jlee0425/leetcode.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jlee0425/leetcode/issues"
+	},
+	"homepage": "https://github.com/jlee0425/leetcode#readme",
+	"devDependencies": {
+		"@types/chai": "^4.2.16",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "^14.14.41",
+		"chai": "^4.3.4",
+		"mocha": "^8.3.2",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.2.4"
+	}
+}
