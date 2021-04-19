@@ -26,7 +26,7 @@
     - All the values of preorder are unique.
  */
 
-class TreeNode {
+export class TreeNode {
 	val: number;
 	left: TreeNode | null;
 	right: TreeNode | null;
@@ -37,7 +37,7 @@ class TreeNode {
 	}
 }
 
-function bstFromPreorder(preorder: number[]): TreeNode | null {
+export const bstFromPreorder = (preorder: number[]): TreeNode | null => {
 	if (preorder.length < 1) return null; // sanity check
 
 	const head = new TreeNode(preorder[0]);
@@ -48,7 +48,7 @@ function bstFromPreorder(preorder: number[]): TreeNode | null {
 	}
 
 	return head;
-}
+};
 
 // find the right pos and insert using recursion
 const insert = (node: TreeNode, val: number): TreeNode => {
