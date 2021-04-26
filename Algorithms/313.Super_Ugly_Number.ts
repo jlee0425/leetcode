@@ -17,7 +17,7 @@ export const nthSuperUglyNumber = (n: number, primes: number[]): number => {
 		let currUglyNum = Number.MAX_VALUE,
 			minIndices = []; // DP Array for tracking dpArr
 
-		// find next possible sugly number
+		// find next sugly number
 		for (let i = 0, length = primes.length; i < length; i++) {
 			let num = suglyNums[dpArr[i]] * primes[i];
 			if (currUglyNum > num) {
@@ -27,7 +27,6 @@ export const nthSuperUglyNumber = (n: number, primes: number[]): number => {
 				minIndices.push(i);
 			}
 		}
-
 		suglyNums.push(currUglyNum);
 		minIndices.forEach((index) => dpArr[index]++);
 	}
