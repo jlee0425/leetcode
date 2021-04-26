@@ -4,6 +4,10 @@
  *
  * ex) [3, 6, 2, 7] is a subsequence of the array [0, 3, 1, 6, 2, 2, 7].
  *
+ * Constraints:
+ *  - 1 <= nums.length <= 2500
+ *  - -10^4 <= nums[i] <= 10^4
+ *
  * @param nums integer array
  * @returns length of the longest strictly increasing subsequence
  */
@@ -24,4 +28,33 @@ export const lengthOfLIS = (nums: number[]): number => {
 	}
 
 	return Math.max(...sequence);
+};
+
+export const LISWithBS = (nums: number[]): number => {
+	let sequence = new Array(nums.length).fill(Math.pow(10, 4) + 1);
+
+	const binarySearch = (target: number): number => {
+		let start = 0,
+			end = sequence.length - 1;
+
+		while (start < end) {
+			const mid = Math.floor((start + end) / 2);
+			if (sequence[mid] === target) return mid;
+			if (sequence[mid] > target) {
+				end = mid;
+			} else {
+				start = mid + 1;
+			}
+		}
+		return start;
+	};
+
+	for (let n of nums) {
+		let i = binarySearch(n);
+		sequence[i] = n;
+	}
+
+	const ans = sequence.indexOf(Math.pow(10, 4) + 1);
+
+	return ans === -1 ? nums.length : ans;
 };
