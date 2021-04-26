@@ -1,8 +1,7 @@
 {
 	"name": "leetcode",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "Jeongkyu Lee's Study book for programming.",
 	"scripts": {
 		"test": "mocha -r ts-node/register 'test/**/*.ts'"
 	},
