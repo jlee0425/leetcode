@@ -1,4 +1,4 @@
-import { lengthOfLIS, LISWithBS } from './../DynamicProgramming/300.LIS';
+import { lengthOfLIS, LISWithBS } from '../DynamicProgramming/300.LIS';
 import { describe } from 'mocha';
 import { expect } from 'chai';
 
