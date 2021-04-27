@@ -1,4 +1,4 @@
-import { minSwap } from '../Algorithms/801.Min_Swap';
+import { minSwap } from '../DynamicProgramming/801.Min_Swap';
 import { describe } from 'mocha';
 import { expect } from 'chai';
 
