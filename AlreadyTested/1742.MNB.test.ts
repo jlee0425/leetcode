@@ -1,4 +1,4 @@
-import { countBalls } from './../DataStructure/1742.Max_Num_Balls';
+import { countBalls } from '../DataStructure/1742.Max_Num_Balls';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
