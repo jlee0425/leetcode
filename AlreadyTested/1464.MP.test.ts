@@ -1,4 +1,4 @@
-import { maxProduct } from './../Algorithms/1464.MaxProduct';
+import { maxProduct } from '../Algorithms/1464.MaxProduct';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
