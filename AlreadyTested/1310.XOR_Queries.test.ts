@@ -14,7 +14,7 @@ describe('XOR Queries of a subarray', () => {
 					[3, 3],
 				],
 			),
-		).to.eql([2, 7, 14, 8]);
+		).to.eqls([2, 7, 14, 8]);
 	});
 
 	it('Input: arr = [4, 8, 2, 10], queries = [[2, 3],[1, 3],[0, 0],[0, 3]]', () => {
@@ -28,6 +28,6 @@ describe('XOR Queries of a subarray', () => {
 					[0, 3],
 				],
 			),
-		).to.eql([8, 0, 4, 4]);
+		).to.eqls([8, 0, 4, 4]);
 	});
 });

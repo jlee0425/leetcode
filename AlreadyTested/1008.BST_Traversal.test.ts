@@ -7,10 +7,10 @@ describe('BST Traversal', () => {
 		let customTree = new TreeNode(3);
 		customTree.left = new TreeNode(0);
 
-		expect(bstFromPreorder([3, 0])).to.eql(customTree);
+		expect(bstFromPreorder([3, 0])).to.eqls(customTree);
 
 		customTree.right = new TreeNode(5);
-		expect(bstFromPreorder([3, 0, 5])).to.eql(customTree);
+		expect(bstFromPreorder([3, 0, 5])).to.eqls(customTree);
 	});
 
 	it('inserting 7 integers', () => {
@@ -22,6 +22,6 @@ describe('BST Traversal', () => {
 		customTree.right.left = new TreeNode(2);
 		customTree.right.right = new TreeNode(10);
 
-		expect(bstFromPreorder([0, -2, 5, -3, -1, 2, 10])).to.eql(customTree);
+		expect(bstFromPreorder([0, -2, 5, -3, -1, 2, 10])).to.eqls(customTree);
 	});
 });
