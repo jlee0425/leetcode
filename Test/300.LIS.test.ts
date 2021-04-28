@@ -4,7 +4,7 @@ import { expect } from 'chai';
 
 describe('Longest Increasing Subsequence', () => {
 	it('input: [10, 9, 2, 5, 3, 7, 101, 18]; output: 4', () => {
-		expect(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18])).to.equals(4);
+		expect(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18])).to.equal(4);
 	});
 
 	it('input: [0, 1, 0, 3, 2, 3]; output: 4', () => {
