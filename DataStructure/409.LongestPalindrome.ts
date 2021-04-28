@@ -8,29 +8,22 @@
  */
 
 export const longestPalindrome = (s: string): number => {
-	let list: { [key: string]: number } = {};
+	let map = new Map();
 
 	for (let c of s) {
-		list[c] = list[c] ? list[c] + 1 : 1;
+		map.set(c, map.get(c) + 1 || 1);
 	}
 
-	if (Object.keys(list).length == 1) return s.length;
-
 	let maxLen = 0;
-	let containsOddStr = false;
 
-	Object.values(list).forEach((n) => {
-		if (n % 2 == 0) {
-			maxLen += n;
-		} else {
-			if (containsOddStr) {
-				maxLen += n - 1;
-			} else {
-				maxLen += n;
-				containsOddStr = true;
-			}
+	for (let count of map.values()) {
+		if (count % 2 == 0) {
+			maxLen += count;
+		} else if (count != 1) {
+			maxLen += count - 1;
 		}
-	});
+	}
 
-	return maxLen;
+	// add 1 for the character that's in the `s` once.
+	return maxLen === s.length ? maxLen : maxLen + 1;
 };
