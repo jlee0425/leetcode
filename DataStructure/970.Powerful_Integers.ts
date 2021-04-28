@@ -15,25 +15,28 @@ export const powerfulIntegers = (
 	y: number,
 	bound: number,
 ): number[] => {
-	let buckets: number[] = new Array(bound + 1).fill(0);
-	let result = [];
+	let boundedX: number[] = createBoundedPIs(x, bound);
+	let boundedY: number[] = createBoundedPIs(y, bound);
 
-	const getMax = (a: number) => {
-		if (a < 2) return a;
-		return Math.floor(Math.log(bound) / Math.log(a));
-	};
-	let xMax = getMax(x);
-	let yMax = getMax(y);
-
-	for (let i = 0; i <= xMax; i++) {
-		for (let j = 0; j <= yMax; j++) {
-			let num = Math.pow(x, i) + Math.pow(y, j);
-			if (num <= bound) buckets[num]++;
+	let result = new Set<number>();
+	for (let i of boundedX) {
+		for (let y of boundedY) {
+			if (i + y <= bound) result.add(i + y);
 		}
 	}
 
-	for (let i = 0; i < bound + 1; i++) {
-		if (buckets[i] > 0) result.push(i);
+	return Array.from(result);
+};
+
+const createBoundedPIs = (n: number, bound: number): number[] => {
+	let result = [1];
+	let curr = n;
+
+	if (n < 2) return result;
+
+	while (curr < bound) {
+		result.push(curr);
+		curr *= n;
 	}
 
 	return result;
