@@ -1,4 +1,4 @@
-import { plusOne } from './../DataStructure/66.Plus_One';
+import { plusOne } from '../DataStructure/66.Plus_One';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
