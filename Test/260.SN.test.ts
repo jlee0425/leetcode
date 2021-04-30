@@ -36,7 +36,11 @@ describe('Single Number III using Bit Manipulation', () => {
 		expect(singleNumber_Bit([1, 2, 1, 3, 2, 5])).to.eql([3, 5]);
 	});
 
-	it('nums = [1,2,2,7,3,3]', () => {
-		expect(singleNumber_Bit([1, 2, 2, 3, 7, 3])).to.eql([7, 1]);
+	it('nums = [4,1,1,3,7,3]', () => {
+		expect(singleNumber_Bit([4, 1, 1, 3, 7, 3])).to.eql([7, 4]);
+	});
+
+	it('nums = [1,2,2,0,0,7,3,3]', () => {
+		expect(singleNumber_Bit([4, 1, 1, 0, 0, 3, 7, 3])).to.eql([7, 4]);
 	});
 });
