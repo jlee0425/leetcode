@@ -34,7 +34,6 @@ export const singleNumber_Bit = (nums: number[]): number[] => {
 	while ((diffBit & xors) == 0) diffBit <<= 1;
 
 	let res = [0, 0];
-
 	for (let n of nums) {
 		if (n & diffBit) {
 			res[0] ^= n;
