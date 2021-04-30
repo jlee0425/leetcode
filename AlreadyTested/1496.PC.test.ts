@@ -1,4 +1,4 @@
-import { isPathCrossing } from './../Algorithms/1496.Path_Crossing';
+import { isPathCrossing } from '../Algorithms/1496.Path_Crossing';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
