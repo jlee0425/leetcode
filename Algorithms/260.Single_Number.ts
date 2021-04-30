@@ -22,3 +22,26 @@ export const singleNumber = (nums: number[]): number[] => {
 	}
 	return nums;
 };
+
+export const singleNumber_Bit = (nums: number[]): number[] => {
+	let xors = 0;
+
+	for (let n of nums) {
+		xors ^= n;
+	}
+
+	let diffBit = 1;
+	while ((diffBit & xors) == 0) diffBit <<= 1;
+
+	let res = [0, 0];
+
+	for (let n of nums) {
+		if (n & diffBit) {
+			res[0] ^= n;
+		} else {
+			res[1] ^= n;
+		}
+	}
+
+	return res;
+};
