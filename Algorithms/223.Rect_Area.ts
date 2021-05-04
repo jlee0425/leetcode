@@ -1,3 +1,20 @@
+/**
+ * Given the coordinates of two rectilinear rectangles in a 2D plane,
+ * return the total area covered by the two rectangles.
+ * The first rectangle is defined by its bottom-left corner (A, B) and its top-right corner (C, D).
+ * The second rectangle is defined by its bottom-left corner (E, F) and its top-right corner (G, H).
+ *
+ * @param A number
+ * @param B number
+ * @param C number
+ * @param D number
+ * @param E number
+ * @param F number
+ * @param G number
+ * @param H number
+ * @returns number; total area of rectangles
+ */
+
 export const computeArea = (
 	A: number,
 	B: number,
