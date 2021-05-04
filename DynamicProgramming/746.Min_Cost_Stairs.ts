@@ -11,13 +11,13 @@
 export const minCostClimbingStairs = (cost: number[]): number => {
 	if (cost.length < 3) return Math.min(...cost);
 
-	const topIdx = cost.length;
-	let dp: number[] = [];
-	[dp[0], dp[1]] = [cost[0], cost[1]];
+	let dp: number[] = new Array(cost.length + 1).fill(0);
 
-	for (let i = 2; i < cost.length; i++) {
-		dp[i] = cost[i] + Math.min(dp[i - 1], dp[i - 2]);
+	for (let i = 2; i < dp.length; i++) {
+		let oneStep = cost[i - 1] + dp[i - 1];
+		let twoStep = cost[i - 2] + dp[i - 2];
+		dp[i] = Math.min(oneStep, twoStep);
 	}
 
-	return Math.min(dp[topIdx - 1], dp[topIdx - 2]);
+	return dp[dp.length - 1];
 };
