@@ -1,4 +1,4 @@
-import { search } from './33.Search_In_Rotated_Sorted_Arr';
+import { search } from '../Algorithms/33.Search_In_Rotated_Sorted_Arr';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
