@@ -24,3 +24,13 @@ export const hammingWeight = (n: number): number => {
 	}
 	return count;
 };
+
+export const hammingWeight2 = (n: number): number => {
+	const decToBin = (num: number): string => {
+		return (num >>> 0).toString(2);
+	};
+
+	return decToBin(n)
+		.split('')
+		.filter((bit) => bit == '1').length;
+};
