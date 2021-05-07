@@ -1,4 +1,4 @@
-import { readBinaryWatch } from './../Algorithms/401.Binary_Watch';
+import { readBinaryWatch } from '../Algorithms/401.Binary_Watch';
 import { describe } from 'mocha';
 import { expect } from 'chai';
 
