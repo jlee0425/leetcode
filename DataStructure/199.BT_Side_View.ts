@@ -13,6 +13,7 @@ export const rightSideView = (root: TreeNode | null): number[] => {
 	let ans: number[] = [];
 	let queue: TreeNode[] = [root];
 
+	// BFS
 	while (queue.length > 0) {
 		let length = queue.length;
 		let cur: TreeNode;
@@ -26,6 +27,22 @@ export const rightSideView = (root: TreeNode | null): number[] => {
 
 		ans.push(cur.val);
 	}
+
+	return ans;
+};
+
+export const rightSideView_DFS = (root: TreeNode | null): number[] => {
+	const ans: number[] = [];
+
+	const dfs = (node: TreeNode, level: number = 0) => {
+		if (!node) return;
+
+		ans[level] = node.val;
+		dfs(node.left, level + 1);
+		dfs(node.right, level + 1);
+	};
+
+	dfs(root);
 
 	return ans;
 };
