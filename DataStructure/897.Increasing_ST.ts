@@ -14,21 +14,16 @@ export const increasingBST = (root: TreeNode | null): TreeNode | null => {
 
 	let dummyHead: TreeNode = new TreeNode(0);
 	let ptr = dummyHead;
-	let queue: number[] = [];
 
 	const inOrderTraverse = (node: TreeNode) => {
 		if (!node) return;
 		inOrderTraverse(node.left);
-		queue.push(node.val);
+		ptr.right = node;
+		ptr = ptr.right;
 		inOrderTraverse(node.right);
 	};
 
 	inOrderTraverse(root);
-
-	while (queue.length > 0) {
-		ptr.right = new TreeNode(queue.shift());
-		ptr = ptr.right;
-	}
 
 	return dummyHead.right;
 };
