@@ -13,28 +13,18 @@ import { TreeNode } from './../DataStructure/1008.BST_Traversal';
 export const hasPathSum = (
 	root: TreeNode | null,
 	targetSum: number,
+	sum: number = 0,
 ): boolean => {
 	if (!root) return false;
 
-	const dfs = (node: TreeNode, sum: number): boolean => {
-		if (!node.left && !node.right) {
-			sum += node.val;
-			if (sum === targetSum) return true;
-			return false;
-		}
+	sum += root.val;
 
-		sum += node.val;
-		let left = false,
-			right = false;
-		if (node.left) {
-			left = dfs(node.left, sum);
-		}
-		if (node.right) {
-			right = dfs(node.right, sum);
-		}
+	if (!root.left && !root.right && sum == targetSum) {
+		return true;
+	}
 
-		return left || right;
-	};
-
-	return dfs(root, 0);
+	return (
+		hasPathSum(root.left, targetSum, sum) ||
+		hasPathSum(root.right, targetSum, sum)
+	);
 };
