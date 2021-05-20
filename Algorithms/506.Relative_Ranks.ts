@@ -19,22 +19,32 @@
  * @returns array of strings
  */
 
+interface Score {
+	val: number;
+	pos: number;
+}
+
 export const findRelativeRanks = (score: number[]): string[] => {
 	const ans: string[] = [];
-	const sortedScore = [...score].sort((a, b) => b - a);
-
-	score.map((s) => {
-		const curAthlete = sortedScore.findIndex((ss) => s === ss);
-		if (curAthlete === 0) {
-			ans.push('Gold Medal');
-		} else if (curAthlete === 1) {
-			ans.push('Silver Medal');
-		} else if (curAthlete === 2) {
-			ans.push('Bronze Medal');
-		} else {
-			ans.push(curAthlete + 1 + '');
-		}
+	const scoreWithPos: Score[] = score.map((s, i) => {
+		return {
+			val: s,
+			pos: i,
+		};
 	});
+
+	scoreWithPos.sort((a, b) => b.val - a.val);
+
+	for (let i = 0; i < score.length; i++) {
+		ans[scoreWithPos[i].pos] =
+			i === 0
+				? 'Gold Medal'
+				: i === 1
+				? 'Silver Medal'
+				: i === 2
+				? 'Bronze Medal'
+				: i + 1 + '';
+	}
 
 	return ans;
 };
