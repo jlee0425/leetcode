@@ -17,25 +17,21 @@ export const isSubtree = (
 	root: TreeNode | null,
 	subRoot: TreeNode | null,
 ): boolean => {
-	if (!root) return false;
+	if (!root) return !subRoot;
 
-	if (isEqual(root, subRoot)) {
-		return true;
-	}
-
-	return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+	return (
+		isEqual(root, subRoot) ||
+		isSubtree(root.left, subRoot) ||
+		isSubtree(root.right, subRoot)
+	);
 };
 
 const isEqual = (node: TreeNode, target: TreeNode): boolean => {
 	if (!node && !target) return true;
-
-	if (node && target) {
-		return (
-			node.val === target.val &&
-			isEqual(node.left, target.left) &&
-			isEqual(node.right, target.right)
-		);
-	}
-
-	return false;
+	if (!node || !target) return false;
+	return (
+		node.val === target.val &&
+		isEqual(node.left, target.left) &&
+		isEqual(node.right, target.right)
+	);
 };
