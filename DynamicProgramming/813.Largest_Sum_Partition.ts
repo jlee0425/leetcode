@@ -14,25 +14,27 @@ export const largestSumPartition = (A: number[], K: number): number => {
 	let length = A.length;
 	let prefix = new Array(length + 1).fill(0);
 
+	// cumulative sums
 	for (let i = 0; i < length; i++) {
 		prefix[i + 1] = prefix[i] + A[i];
 	}
-	console.log(`prefix`, prefix);
 
+	// respective avg from i to length
 	let dp: number[] = new Array(length).fill(0);
 	for (let i = 0; i < length; i++) {
-		dp[i] = (prefix[length] - prefix[i]) / (length - i);
+		dp[i] = avg(prefix, i, length);
 	}
-	console.log(`dp`, dp);
 
 	for (let k = 0; k < K - 1; k++) {
 		for (let i = 0; i < length; i++) {
 			for (let j = i + 1; j < length; j++) {
-				dp[i] = Math.max(dp[i], (prefix[j] - prefix[i]) / (j - i) + dp[j]);
-				console.log(`dp`, dp);
+				dp[i] = Math.max(dp[i], avg(prefix, i, j) + dp[j]);
 			}
 		}
 	}
-	console.log(`dp`, dp);
+
 	return parseFloat(dp[0].toFixed(5));
 };
+
+const avg = (arr: number[], start: number, end: number) =>
+	(arr[end] - arr[start]) / (end - start);
