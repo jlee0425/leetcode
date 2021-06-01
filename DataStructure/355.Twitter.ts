@@ -22,48 +22,46 @@
  * void unfollow(int followerId, int followeeId)
  *  The user with ID followerId started unfollowing the user with ID followeeId.
  */
-interface User {
-	id: number;
-	twits: Twit[];
-	followers: number[];
-}
 
 interface Twit {
-	id: number;
-	twitted: number;
+	userId: number;
+	tweetId: number;
 }
-
 export class Twitter {
-	db: User[];
+	db: Twit[];
+	followers: Map<number, number[]>;
 
 	constructor() {
 		this.db = [];
+		this.followers = new Map();
 	}
 
 	postTweet(userId: number, tweetId: number): void {
-		if (!this.db[userId])
-			this.db[userId] = { id: userId, twits: [], followers: [] } as User;
-		this.db[userId].twits.push({ id: tweetId, twitted: Date.now() });
+		this.db.unshift({ userId, tweetId });
 	}
 
 	getNewsFeed(userId: number): number[] {
-		const twits = [...this.db[userId].twits] || [];
-		for (let follower of this.db[userId].followers) {
-			twits.push(...this.db[follower].twits);
-		}
-		twits.sort((a, b) => b.twitted - a.twitted);
+		const followers = this.followers.get(userId) || [];
 
-		console.log(`twits`, twits);
-		return twits.slice(0, 10).map((t) => t.id);
+		return this.db
+			.filter(
+				(tweet) => tweet.userId === userId || followers.includes(tweet.userId),
+			)
+			.slice(0, 10)
+			.map((t) => t.tweetId);
 	}
 
 	follow(followerId: number, followeeId: number): void {
-		this.db[followerId].followers.push(followeeId);
+		this.followers.set(followerId, [
+			...(this.followers.get(followerId) || []),
+			followeeId,
+		]);
 	}
 
 	unfollow(followerId: number, followeeId: number): void {
-		this.db[followerId].followers = this.db[followerId].followers.filter(
-			(id) => id != followeeId,
+		this.followers.set(
+			followerId,
+			(this.followers.get(followerId) || []).filter((id) => id != followeeId),
 		);
 	}
 }
