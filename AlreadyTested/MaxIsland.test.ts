@@ -1,4 +1,4 @@
-import { maxAreaOfIsland } from './../DataStructure/MaxIsland';
+import { maxAreaOfIsland } from '../DataStructure/MaxIsland';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
