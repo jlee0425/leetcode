@@ -9,5 +9,12 @@
  * @returns number
  */
 export const minPartitions = (n: string): number => {
-	return Math.max(...n.split('').map(Number));
+	let max = 0;
+
+	for (let c of n) {
+		max = Math.max(max, Number(c));
+		if (max === 9) break;
+	}
+
+	return max;
 };
