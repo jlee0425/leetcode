@@ -1,4 +1,4 @@
-import { isSumEqual } from './../DataStructure/1880.Sum_2_Words';
+import { isSumEqual } from '../DataStructure/1880.Sum_2_Words';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 

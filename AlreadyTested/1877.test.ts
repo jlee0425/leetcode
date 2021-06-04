@@ -1,4 +1,4 @@
-import { minPairSum } from './../Algorithms/1877.Min_Max_Sum';
+import { minPairSum } from '../Algorithms/1877.Min_Max_Sum';
 import { expect } from 'chai';
 import { describe } from 'mocha';
 
