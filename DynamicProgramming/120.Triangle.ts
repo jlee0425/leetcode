@@ -10,21 +10,21 @@
  */
 export const minimumTotal = (triangle: number[][]): number => {
 	if (triangle.length < 2) return triangle[0][0];
-	let dp: number[] = [triangle[0][0]];
 
-	for (let i = 1; i < triangle.length; i++) {
-		let curStep = triangle[i];
-		const prefix = [...dp];
-		for (let j = 0; j < curStep.length; j++) {
-			if (j === 0) {
-				dp[j] = prefix[j] + curStep[j];
-			} else if (j < curStep.length - 1) {
-				dp[j] = Math.min(prefix[j], prefix[j - 1]) + curStep[j];
-			} else {
-				dp.push(curStep[j] + prefix[j - 1]);
-			}
-		}
+	const length = triangle.length;
+	let dp: number[] = new Array(length);
+
+	for (let i = 0; i < length; i++) {
+		dp[i] = triangle[length - 1][i];
 	}
 
-	return Math.min(...dp);
+	for (let i = length - 2; i >= 0; i--) {
+		const tempDP = new Array(i + 1);
+		for (let j = i; j >= 0; j--) {
+			tempDP[j] = Math.min(dp[j], dp[j + 1]) + triangle[i][j];
+		}
+		dp = tempDP;
+	}
+
+	return dp[0];
 };
