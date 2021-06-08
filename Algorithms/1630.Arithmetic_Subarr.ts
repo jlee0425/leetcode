@@ -31,7 +31,7 @@ export const checkArithmeticSubarrays = (
 	l: number[],
 	r: number[],
 ): boolean[] => {
-	let ans: boolean[] = new Array(l.length).fill(false);
+	let ans: boolean[] = new Array(l.length);
 
 	for (let i = 0; i < l.length; i++) {
 		if (r[i] - l[i] < 2) {
@@ -39,18 +39,18 @@ export const checkArithmeticSubarrays = (
 			continue;
 		}
 
-		let curr = nums.slice(l[i], r[i] + 1).sort((a, b) => a - b);
-		const diff = curr[0] - curr[1];
-
-		let flag = true;
-		for (let j = 1; j < curr.length - 1; j++) {
-			if (curr[j] - curr[j + 1] != diff) {
-				flag = false;
-				break;
-			}
-		}
-		if (flag) ans[i] = flag;
+		ans[i] = isArithmetic(nums.slice(l[i], r[i] + 1));
 	}
 
 	return ans;
+};
+
+const isArithmetic = (nums: number[]): boolean => {
+	nums.sort((a, b) => a - b);
+	const diff = nums[0] - nums[1];
+	for (let i = 1; i < nums.length - 1; i++) {
+		if (diff != nums[i] - nums[i + 1]) return false;
+	}
+
+	return true;
 };
