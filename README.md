@@ -1,3 +1,28 @@
+# leetcode
+
+- This repository contains various programming problems and corresponding implementation.
+
+- The problems are categorized into 5 different sections with respects to their topics: Algorithms, Concurrency, Data Structure, Dynamic Programming and Shell.
+
+- Each problem is tested lightly, and test files that contain passed tests corresponding to their problems can be found in their respective folders.
+
+- All problems are implemented in `Typescript`, and tested with `mocha` and `chai`
+
+## Installation & test
+
+```
+// with npm
+npm install
+npm test
+
+// with yarn
+yarn install
+yarn test
+```
+
+Please find `package.json` for more information.
+
+
 # 리트코트
 
 - 다양한 프로그래밍 문제와 해당 문제의 구현을 담은 Repository입니다.
@@ -12,33 +37,10 @@ npm install
 npm test
 
 // yarn을 이용할 경우
-yarn add
+yarn install
 yarn test
 ```
 
 자세한 정보는 `package.json`에서 참고 부탁드립니다.
 
 
-# leetcode
-
-- This repository contains various programming problems & corresponding implementation.
-
-- The problems are categorized into 5 different sections with respects to their topics: Algorithms, Concurrency, Data Structure, Dynamic Programming and Shell.
-
-- Each problem is tested lightly, and test files that contain passed tests corresponding to their problems can be found in `AlreadyTested` folder in order to avoid cluttering whlie testing other problems.
-
-- All problems are implemented in `Typescript`, and tested with `mocha` and `chai`
-
-## Installation & test
-
-```
-// with npm
-npm install
-npm test
-
-// with yarn
-yarn add
-yarn test
-```
-
-Please find `package.json` for more information.
